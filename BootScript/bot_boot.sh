@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Change directory to ShapeSwarm
-PWD= pwd -P
-REPO_PATH="${PWD}/ShapeSwarm/"
+PWD=$(pwd -P)
+REPO_PATH="${PWD}ShapeSwarm/"
 cd $REPO_PATH || { echo "Error: Failed to change directory to $REPO_PATH"; exit 1; }
 
 # Switch to bots branch and pull updated files
