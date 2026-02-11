@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Change directory to ShapeSwarm
 PWD= pwd -P
 REPO_PATH="${PWD}/ShapeSwarm/"
