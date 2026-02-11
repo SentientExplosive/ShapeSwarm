@@ -18,4 +18,4 @@ git pull
 #    exit 1
 #fi
 
-# Testing if the script works
+# Testing if the script works againnnnnn ughhhh
