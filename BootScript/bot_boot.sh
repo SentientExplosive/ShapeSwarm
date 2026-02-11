@@ -11,9 +11,9 @@ git checkout $BRANCH
 git pull
 
 # Check the exit status of the git pull command
-if [ $? -eq 0 ]; then
-    echo "Git pull completed successfully."
-else
-    echo "Error: Git pull failed. Please check for conflicts or connectivity issues."
-    exit 1
-fi
+#if [ $? -eq 0 ]; then
+#    echo "Git pull completed successfully."
+#else
+#    echo "Error: Git pull failed. Please check for conflicts or connectivity issues."
+#    exit 1
+#fi
