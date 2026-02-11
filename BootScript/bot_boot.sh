@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Change directory to ShapeSwarm
-REPO_PATH="$( cd "$( dirname "$0" )" && pwd"
+REPO_PATH="$( cd "$( dirname "$0" )" && pwd)"
 cd $REPO_PATH || { echo "Error: Failed to change directory to $REPO_PATH"; exit 1; }
 
 # Switch to bots branch and pull updated files
@@ -17,5 +17,3 @@ git pull
 #    echo "Error: Git pull failed. Please check for conflicts or connectivity issues."
 #    exit 1
 #fi
-
-# Testing if the script works
