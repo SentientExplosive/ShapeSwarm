@@ -17,3 +17,5 @@ git pull
 #    echo "Error: Git pull failed. Please check for conflicts or connectivity issues."
 #    exit 1
 #fi
+
+# Testing if the script works
