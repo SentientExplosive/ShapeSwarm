@@ -31,31 +31,31 @@ def idGen(id):
 
     if (id % 2 == 1): # Top left dot
         print("Top Left")
-        my_arrow[56] = n
-        my_arrow[57] = n
-        my_arrow[48] = n
-        my_arrow[49] = n
+        my_id[56] = n
+        my_id[57] = n
+        my_id[48] = n
+        my_id[49] = n
 
     if (id % 2 == 0): # Top right dot
         print("Top Right")
-        my_arrow[8] = n
-        my_arrow[9] = n
-        my_arrow[0] = n
-        my_arrow[1] = n
+        my_id[8] = n
+        my_id[9] = n
+        my_id[0] = n
+        my_id[1] = n
 
     if (id % 4 == 3) or (id > 4 and id % 2 == 0): # Bottom left dot
         print("Bottom Left")
-        my_arrow[59] = n
-        my_arrow[60] = n
-        my_arrow[51] = n
-        my_arrow[52] = n
+        my_id[59] = n
+        my_id[60] = n
+        my_id[51] = n
+        my_id[52] = n
 
     if (id % 4 == 0) or (id > 4 and id % 2 == 1): # Bottom right dot
         print("Bottom Right")
-        my_arrow[11] = n
-        my_arrow[12] = n
-        my_arrow[3] = n
-        my_arrow[4] = n
+        my_id[11] = n
+        my_id[12] = n
+        my_id[3] = n
+        my_id[4] = n
     
     print("My ID")
     print(my_id)
