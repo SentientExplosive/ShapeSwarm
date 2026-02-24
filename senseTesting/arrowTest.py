@@ -20,7 +20,7 @@ arrow_pixels = [
 
 my_arrow = arrow_pixels.copy()
 
-def idGen(id):
+def originalIdGen(id):
     # Adds dots to the proper locations on the arrow
     # Dots are referred to as their location in accordance to the arrow with the
     # front direction facing up, unlike how it is stored sideways in the array
@@ -57,7 +57,43 @@ def idGen(id):
         my_id[3] = n
         my_id[4] = n
     
-    print("My ID")
+    print(my_id)
+    return my_id
+
+def idGen(id):
+    # Adds dots to the proper locations on the arrow
+    # Dots are referred to as their location in accordance to the arrow with the
+    # front direction facing up, unlike how it is stored sideways in the array
+    my_id = arrow_pixels.copy()
+
+    if (id % 2 == 1): # Top left dot
+        print("Top Left")
+        my_id[56] = n
+        my_id[57] = n
+        my_id[48] = n
+        my_id[49] = n
+
+    if (id % 4 > 1): # Top right dot
+        print("Top Right")
+        my_id[8] = n
+        my_id[9] = n
+        my_id[0] = n
+        my_id[1] = n
+
+    if (id % 8 > 3): # Bottom left dot
+        print("Bottom Left")
+        my_id[59] = n
+        my_id[60] = n
+        my_id[51] = n
+        my_id[52] = n
+
+    if (id % 16 > 7): # Bottom right dot
+        print("Bottom Right")
+        my_id[11] = n
+        my_id[12] = n
+        my_id[3] = n
+        my_id[4] = n
+    
     print(my_id)
     return my_id
 
