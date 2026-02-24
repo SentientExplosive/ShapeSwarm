@@ -7,14 +7,14 @@ a = (255,255,255) # arrow color
 
 # Array for just the arrow
 arrow_pixels = [
-    b, b, b, a, a, b, b, b,
-    b, b, b, a, a, b, b, b,
-    b, b, b, a, a, b, b, b,
-    b, b, b, a, a, b, b, b,
-    b, b, b, a, a, b, b, b,
-    b, b, b, a, a, b, b, b,
+    b, b, b, b, b, b, a, a,
+    b, b, b, b, b, b, a, a,
+    b, b, b, b, b, b, a, a,
     a, a, a, a, a, a, a, a, 
-    a, a, a, a, a, a, a, a
+    a, a, a, a, a, a, a, a, 
+    b, b, b, b, b, b, a, a,
+    b, b, b, b, b, b, a, a,
+    b, b, b, b, b, b, a, a
 ]
 
 # Display arrow array on sense hat pixels
