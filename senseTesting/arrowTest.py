@@ -73,14 +73,14 @@ def idGen(id):
         my_id[48] = n
         my_id[49] = n
 
-    if (id % 4 > 1): # Top right dot
+    if (id % 8 > 3): # Top right dot
         print("Top Right")
         my_id[8] = n
         my_id[9] = n
         my_id[0] = n
         my_id[1] = n
 
-    if (id % 8 > 3): # Bottom left dot
+    if (id % 4 > 1): # Bottom left dot
         print("Bottom Left")
         my_id[59] = n
         my_id[60] = n
@@ -105,7 +105,7 @@ for i in range(0,16):
     print("My arrow")
     print(my_arrow)
     sense.set_pixels(my_arrow)
-    time.sleep(5)
+    time.sleep(2.5)
 
 # Clear pixels
 sense.clear()
