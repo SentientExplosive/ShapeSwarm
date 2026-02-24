@@ -98,7 +98,7 @@ def idGen(id):
     return my_id
 
 # Display arrow array on sense hat pixels
-for i in range(0,9):
+for i in range(0,16):
     id = i
     print(id)
     my_arrow = idGen(id)
