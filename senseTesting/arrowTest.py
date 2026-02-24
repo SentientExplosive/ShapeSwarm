@@ -93,8 +93,7 @@ def idGen(id):
         my_id[12] = n
         my_id[3] = n
         my_id[4] = n
-    
-    print(my_id)
+
     return my_id
 
 # Display arrow array on sense hat pixels
@@ -102,8 +101,6 @@ for i in range(0,16):
     id = i
     print(id)
     my_arrow = idGen(id)
-    print("My arrow")
-    print(my_arrow)
     sense.set_pixels(my_arrow)
     time.sleep(2.5)
 
