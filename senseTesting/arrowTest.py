@@ -27,7 +27,7 @@ def idGen(id):
     my_id = arrow_pixels.copy()
 
     if id == 0: # Id of 0 has no dots added
-        return
+        return my_id
 
     if (id % 2 == 1): # Top left dot
         my_arrow[56] = n
