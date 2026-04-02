@@ -3,8 +3,8 @@ import time
 sense = SenseHat()
 
 b = (0,0,0) # Black
-a = (255,255,255) # arrow color
-n = (0,0,255) # Number / dot color
+a = (0,0,200) # arrow color
+n = (200,0,0) # Number / dot color
 
 # Array for just the arrow
 arrow_pixels = [
