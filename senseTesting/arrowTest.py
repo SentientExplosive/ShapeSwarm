@@ -4,7 +4,7 @@ sense = SenseHat()
 
 b = (0,0,0) # Black
 a = (255,255,255) # arrow color
-n = (255,0,0) # Number / dot color
+n = (0,0,255) # Number / dot color
 
 # Array for just the arrow
 arrow_pixels = [
@@ -57,7 +57,6 @@ def originalIdGen(id):
         my_id[3] = n
         my_id[4] = n
     
-    print(my_id)
     return my_id
 
 def idGen(id):
