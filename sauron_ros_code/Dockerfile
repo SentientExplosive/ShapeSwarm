@@ -2,8 +2,8 @@ FROM ros:jazzy-perception-sauron
 WORKDIR /home/ubuntu/EYE_ROS
 
 # Copy The Source Code
-COPY sauron_ros_code/allSeeingEye.py src/vision/vision/
-COPY sauron_ros_code/ringWraith.py src/comms/comms/
+COPY allSeeingEye.py src/vision/vision/
+COPY ringWraith.py src/comms/comms/
 
 # Open Necessary Ports
 #EXPOSE
