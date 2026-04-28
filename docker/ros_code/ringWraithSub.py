@@ -17,7 +17,7 @@ client_id = f'subscribe-bot{botID}'
 
 
 def connect_mqtt() -> mqtt_client:
-    def on_connect(client, userdata, flags, rc):
+    def on_connect(client, userdata, flags, rc, properties):
         if rc == 0:
             print("Connected to MQTT Broker!")
         else:

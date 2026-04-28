@@ -17,7 +17,7 @@ client_id = f'publish-bot{botID}'
 # password = 'rOb0t1cs#'
 
 def connect_mqtt():
-    def on_connect(client, userdata, flags, rc):
+    def on_connect(client, userdata, flags, rc, properties):
         if rc == 0:
             print("Connected to MQTT Broker!")
         else:
