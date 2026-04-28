@@ -9,7 +9,8 @@ import paho.mqtt.client as mqtt_client
 
 broker = "137.142.164.255"
 port = 1883
-botID = -1 # Need to get botID from botID ros topic
+botID = random.randint(0, 1000)
+# botID = -1 # Need to get botID from botID ros topic
 topic = "python/mqtt"
 # Generate a Client ID with the publish prefix.
 client_id = f'publish-bot{botID}'
