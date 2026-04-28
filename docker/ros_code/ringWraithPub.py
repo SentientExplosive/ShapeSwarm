@@ -25,7 +25,7 @@ def connect_mqtt():
 
     client = mqtt_client.Client(mqtt_client.CallbackAPIVersion.VERSION2,client_id)
     # client.username_pw_set(username, password)
-    client.on_connect = on_connect
+    # client.on_connect = on_connect
     client.connect(broker, port)
     return client
 
