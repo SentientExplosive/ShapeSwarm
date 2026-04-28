@@ -13,8 +13,8 @@ botID = -1 # Need to get botID from botID ros topic
 topic = "python/mqtt"
 # Generate a Client ID with the publish prefix.
 client_id = f'publish-bot{botID}'
-username = 'Sauron'
-password = 'rOb0t1cs#'
+# username = 'Sauron'
+# password = 'rOb0t1cs#'
 
 def connect_mqtt():
     def on_connect(client, userdata, flags, rc):
@@ -23,7 +23,7 @@ def connect_mqtt():
         else:
             print("Failed to connect, return code %d\n", rc)
 
-    client = mqtt_client.Client(client_id)
+    client = mqtt_client.Client(mqtt_client.CallbackAPIVersion.VERSION2,client_id)
     # client.username_pw_set(username, password)
     client.on_connect = on_connect
     client.connect(broker, port)
