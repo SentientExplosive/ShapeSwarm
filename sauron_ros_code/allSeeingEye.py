@@ -37,7 +37,7 @@ class allSeeingEye(Node):
 
     def sauron(self):
         # THE ALL SEEING EYE SEES ALL (hopefully)
-
+        pass
 
 
 def main(args=None):
@@ -48,7 +48,7 @@ def main(args=None):
         node.get_logger().info("spinnnnnnn")
         rclpy.spin(node)
     except KeyboardInterrupt:
-        node.get_logger().info("Shutting down Pi to Eye comms publisher.")
+        node.get_logger().info("Shutting down Sauron's vision.")
     finally:
         node.destroy_node()
         rclpy.shutdown()

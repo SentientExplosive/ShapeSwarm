@@ -6,7 +6,6 @@ from rclpy.node import Node
 from std_msgs.msg import String
 from std_msgs.msg import Int64
 
-from sense_hat import SenseHat
 import paho.mqtt.client as mqtt_client
 
 class ringWraithSub(Node):
@@ -61,7 +60,7 @@ class ringWraithSub(Node):
             ringWraithSub.botID += 1
             myID = Int64()
             myID.data = ringWraithSub.botID
-            self.my_id.publish(myID)
+            ringWraithSub.my_id.publish(myID)
             ringWraithSub.get_logger().info(ringWraithSub.botID)
 
         # Generate a Client ID with the subscribe prefix.

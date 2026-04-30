@@ -41,9 +41,9 @@ class ringWraithSub(Node):
     def connect_mqtt(self) -> mqtt_client:
         def on_connect(client, userdata, flags, rc, properties):
             if rc == 0:
-                self.get_logger().info("Connected to MQTT Broker!")
+                ringWraithSub.get_logger().info("Connected to MQTT Broker!")
             else:
-                self.get_logger().info("Failed to connect, return code %d\n", rc)
+                ringWraithSub.get_logger().info("Failed to connect, return code %d\n", rc)
 
         # Generate a Client ID with the subscribe prefix.
         client_id = f'subscribe-bot{self.botID}'
@@ -76,7 +76,7 @@ def main(args=None):
         node.get_logger().info("spinnnnnnn")
         rclpy.spin(node)
     except KeyboardInterrupt:
-        node.get_logger().info("Shutting down Pi to Eye comms subscriber.")
+        node.get_logger().info("Shutting down Eye to Pi comms subscriber.")
     finally:
         node.destroy_node()
         rclpy.shutdown()

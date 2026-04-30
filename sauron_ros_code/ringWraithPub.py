@@ -12,10 +12,10 @@ class ringWraithPub(Node):
     def __init__(self):
         super().__init__('Sauron Ring Wraith Pub')
         # Initialize bot positions subscription
-        self.bot_pos_ = self.create_subscription(Int64, 'bot_pos', self.send_bots, 10)
+        self.bot_pos_ = self.create_subscription(String, 'bot_pos', self.send_bots, 10)
 
         # Initialize goal positions subscription
-        self.goal_pos_ = self.create_subscription(Int64, 'goal_pos', self.send_goals, 10)
+        self.goal_pos_ = self.create_subscription(String, 'goal_pos', self.send_goals, 10)
 
         # Initialize run_state subscription (for updating the current state of the system)
         self.state_ = self.create_subscription(Int64, 'state', self.state_updater,10)
@@ -107,7 +107,7 @@ def main(args=None):
         node.get_logger().info("spinnnnnnn")
         rclpy.spin(node)
     except KeyboardInterrupt:
-        node.get_logger().info("Shutting down Pi to Eye comms publisher.")
+        node.get_logger().info("Shutting down Eye to Pi comms publisher.")
     finally:
         node.destroy_node()
         rclpy.shutdown()
