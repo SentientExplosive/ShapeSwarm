@@ -3,7 +3,8 @@ WORKDIR /home/ubuntu/EYE_ROS
 
 # Copy The Source Code
 COPY allSeeingEye.py src/vision/vision/
-COPY ringWraith.py src/comms/comms/
+COPY ringWraithPub.py src/comms/comms/
+COPY ringWraithSub.py src/comms/comms/
 
 # Open Necessary Ports
 #EXPOSE

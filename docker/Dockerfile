@@ -3,7 +3,8 @@ WORKDIR /home/ubuntu/BOT_ROS
 
 # Copy The Source Code
 COPY ros_code/brian.py src/brian_pkg/brian_pkg/
-COPY ros_code/ringWraith.py src/eyeComms_pkg/eyeComms_pkg/
+COPY ros_code/ringWraithPub.py src/eyeComms_pkg/eyeComms_pkg/
+COPY ros_code/ringWraithSub.py src/eyeComms_pkg/eyeComms_pkg/
 COPY ros_code/megaComms.py src/megaComms_pkg/megaComms_pkg/
 
 # Open Necessary Ports
