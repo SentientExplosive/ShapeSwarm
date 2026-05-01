@@ -16,9 +16,9 @@ RUN userdel app
 RUN useradd app
 # RUN chown -R app:app /home/ubuntu/BOT_ROS
 
-RUN colcon build
+# RUN colcon build
 USER app
-RUN /bin/bash -c "source /opt/ros/jazzy/setup.bash && source install/setup.bash && ros2 run eyeComms_pkg ringWraithPub"
+RUN /bin/bash -c "source /opt/ros/jazzy/setup.bash && colcon build && source install/setup.bash && ros2 run eyeComms_pkg ringWraithPub"
 
 
 # Use CMD to execute a script that builds the ROS Packages and then sources and runs them
