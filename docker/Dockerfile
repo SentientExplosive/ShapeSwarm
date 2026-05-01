@@ -14,8 +14,8 @@ COPY ros_code/megaComms.py src/megaComms_pkg/megaComms_pkg/
 USER root
 RUN userdel app
 RUN useradd app
+RUN chown -R app:app /
 USER app
-RUN chown -R app:app /BOT_ROS
 
 RUN colcon build
 RUN source /opt/ros/jazzy/setup.bash
