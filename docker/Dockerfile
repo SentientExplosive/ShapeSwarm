@@ -11,6 +11,7 @@ COPY ros_code/megaComms.py src/megaComms_pkg/megaComms_pkg/
 #EXPOSE
 
 # Setup an app user so the container doesn't run as the root user
+RUN sudo -i
 RUN userdel app
 RUN useradd app
 USER app
