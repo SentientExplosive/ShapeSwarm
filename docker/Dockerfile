@@ -1,4 +1,5 @@
 FROM ros:jazzy-perception-bot 
+SHELL ["/bin/bash", "-c"]
 WORKDIR /home/ubuntu/BOT_ROS
 
 # Copy The Source Code
@@ -12,16 +13,15 @@ COPY ros_code/megaComms.py src/megaComms_pkg/megaComms_pkg/
 
 # Setup an app user so the container doesn't run as the root user
 USER root
-RUN userdel app
-RUN useradd app
+RUN userdel app || true && useradd -m app
+
+# Fix permissions BEFORE switching user
 RUN chown -R app:app /home/ubuntu/BOT_ROS
 
-RUN colcon build
 USER app
-RUN echo "source /opt/ros/jazzy/setup.bash" >> ~/.bashrc
-RUN echo "source install/setup.bash" >> ~/.bashrc
-RUN ros2 run eyeComms_pkg ringWraithPub"
 
+# Build (must source ROS in same layer)
+RUN source /opt/ros/jazzy/setup.bash && colcon build
 
-# Use CMD to execute a script that builds the ROS Packages and then sources and runs them
-# CMD ["colcon", "build"]
+# Default command (what runs when container starts)
+CMD ["ros2", "run", "eyeComms_pkg", "ringWraithPub"]
