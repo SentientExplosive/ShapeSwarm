@@ -15,6 +15,7 @@ USER root
 RUN userdel app
 RUN useradd app
 USER app
+RUN chown -R app:app /BOT_ROS
 
 RUN colcon build
 RUN source /opt/ros/jazzy/setup.bash
