@@ -14,7 +14,7 @@ COPY ros_code/megaComms.py src/megaComms_pkg/megaComms_pkg/
 USER root
 RUN userdel app
 RUN useradd app
-RUN chown -R app:app /
+RUN chown -R app:app /home/ubuntu/BOT_ROS
 USER app
 
 RUN colcon build
