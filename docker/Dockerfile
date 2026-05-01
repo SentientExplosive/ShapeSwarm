@@ -14,5 +14,10 @@ COPY ros_code/megaComms.py src/megaComms_pkg/megaComms_pkg/
 RUN useradd app
 USER app
 
+RUN colcon build
+RUN source /opt/ros/jazzy/setup.bash
+RUN source install/setup.bash
+RUN ros2 run eyeComms_pkg ringWraithPub
+
 # Use CMD to execute a script that builds the ROS Packages and then sources and runs them
 # CMD ["colcon", "build"]
