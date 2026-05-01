@@ -17,7 +17,7 @@ RUN userdel app || true && useradd -m app
 
 # Fix permissions BEFORE switching user
 RUN chown -R app:app /home/ubuntu/BOT_ROS
-RUN rm -rf build install log
+RUN rm -rf /home/ubuntu/BOT_ROS/build /home/ubuntu/BOT_ROS/install /home/ubuntu/BOT_ROS/log
 
 USER app
 
