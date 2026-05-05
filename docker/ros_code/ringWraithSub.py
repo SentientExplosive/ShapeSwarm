@@ -67,7 +67,8 @@ class ringWraithSub(Node):
         client_id = f'subscribe-bot{self.botID}'
 
         # Start client
-        client = mqtt_client.Client(mqtt_client.CallbackAPIVersion.VERSION2,client_id)
+        # client = mqtt_client.Client(mqtt_client.CallbackAPIVersion.VERSION2,client_id)
+        client = mqtt_client.Client(client_id)
         # client.username_pw_set(username, password)
         client.on_connect = on_connect
         client.on_disconnect = on_disconnect
