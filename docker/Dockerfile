@@ -6,12 +6,13 @@ WORKDIR /home/ubuntu/BOT_ROS
 
 # Copy The Source Code
 COPY ros_code/brian_pkg/brian.py src/brian_pkg/brian_pkg/
-COPY ros_code/brian_pkg/launch.py src/brian_pkg/brian_pkg/
 COPY ros_code/brian_pkg/setup.py src/brian_pkg/setup.py
 
 COPY ros_code/eyeComms_pkg/setup.py src/eyeComms_pkg/setup.py
 COPY ros_code/eyeComms_pkg/ringWraithPub.py src/eyeComms_pkg/eyeComms_pkg/
 COPY ros_code/eyeComms_pkg/ringWraithSub.py src/eyeComms_pkg/eyeComms_pkg/
+
+COPY ros_code/launch/launch.py src/launch/
 
 COPY ros_code/megaComms_pkg/megaComms.py src/megaComms_pkg/megaComms_pkg/
 

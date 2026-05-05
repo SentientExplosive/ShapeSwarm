@@ -25,7 +25,6 @@ setup(
     entry_points={
         'console_scripts': [
             'brian = brian_pkg.brian:main',
-            'launch = brian_pkg.launch:main'
         ],
     },
 )
