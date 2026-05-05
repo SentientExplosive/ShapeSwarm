@@ -2,7 +2,7 @@ FROM ros:jazzy-perception-sauron-base
 SHELL ["/bin/bash", "-c"]
 WORKDIR /home/ubuntu/SAUROS
 
-# RUN sudo apt update && sudo apt install --only-upgrade python3-paho-mqtt -y
+RUN sudo apt update && sudo apt install python3-paho-mqtt -y
 
 # Copy The Source Code
 COPY allSeeingEye.py src/vision_pkg/vision_pkg/
