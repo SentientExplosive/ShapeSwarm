@@ -5,13 +5,17 @@ WORKDIR /home/ubuntu/BOT_ROS
 # RUN sudo apt update && sudo apt install --only-upgrade python3-paho-mqtt -y
 
 # Copy The Source Code
-COPY ros_code/brian.py src/brian_pkg/brian_pkg/
-COPY ros_code/eyeComms_pkg/setup.py src/eyeComms_pkg/setup.py
-COPY ros_code/ringWraithPub.py src/eyeComms_pkg/eyeComms_pkg/
-COPY ros_code/ringWraithSub.py src/eyeComms_pkg/eyeComms_pkg/
-COPY ros_code/megaComms.py src/megaComms_pkg/megaComms_pkg/
-# COPY ros_code/launch.py src/
+COPY ros_code/brian_pkg/brian.py src/brian_pkg/brian_pkg/
+COPY ros_code/brian_pkg/launch.py src/brian_pkg/brian_pkg/
+COPY ros_code/brian_pkg/setup.py src/brian_pkg/setup.py
 
+COPY ros_code/eyeComms_pkg/setup.py src/eyeComms_pkg/setup.py
+COPY ros_code/eyeComms_pkg/ringWraithPub.py src/eyeComms_pkg/eyeComms_pkg/
+COPY ros_code/eyeComms_pkg/ringWraithSub.py src/eyeComms_pkg/eyeComms_pkg/
+
+COPY ros_code/megaComms_pkg/megaComms.py src/megaComms_pkg/megaComms_pkg/
+
+# Copy Entrypoint script
 COPY ros_entrypoint.sh /
 RUN chmod +x /ros_entrypoint.sh
 ENTRYPOINT ["/ros_entrypoint.sh"]
