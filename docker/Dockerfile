@@ -30,4 +30,4 @@ USER ubuntu
 RUN colcon build && source install/setup.bash
 
 # Default command (what runs when container starts)
-#CMD ["ros2", "run", "eyeComms_pkg", "ringWraithPub"]
+CMD ["source","install/setup.bash", "&&", "source", "/opt/ros/jazzy/setup.bash"]
