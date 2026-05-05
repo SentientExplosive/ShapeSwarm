@@ -50,13 +50,13 @@ class ringWraithSub(Node):
 
     # MQTT Functions
     def connect_mqtt(self) -> mqtt_client:
-        def on_connect(client, userdata, flags, rc, properties):
+        def on_connect(client, userdata, flags, rc):
             if rc == 0:
                 ringWraithSub.get_logger().info("Connected to MQTT Broker!")
             else:
                 ringWraithSub.get_logger().info("Failed to connect, return code %d\n", rc)
         
-        def on_disconnect(client, userdata, flags, rc, properties):
+        def on_disconnect(client, userdata, flags, rc):
             ringWraithSub.botID += 1
             myID = Int64()
             myID.data = ringWraithSub.botID
