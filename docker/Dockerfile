@@ -1,4 +1,4 @@
-FROM ros:jazzy-perception-bot 
+FROM ros:jazzy-perception-bot-base
 SHELL ["/bin/bash", "-c"]
 WORKDIR /home/ubuntu/BOT_ROS
 

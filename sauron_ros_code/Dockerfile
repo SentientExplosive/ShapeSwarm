@@ -1,4 +1,4 @@
-FROM ros:jazzy-perception-sauron
+FROM ros:jazzy-perception-sauron-base
 WORKDIR /home/ubuntu/EYE_ROS
 
 # Copy The Source Code
