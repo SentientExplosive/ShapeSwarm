@@ -27,6 +27,6 @@ services:
 
     volumes:
       # Optional: mount source for live dev
-      - ./ros_code:/home/ubuntu/BOT_ROS/src
+      # - ./ros_code:/home/ubuntu/BOT_ROS/src
 
     command: bash
