@@ -63,6 +63,8 @@ class ringWraithSub(Node):
             myID.data = self.botID
             self.my_id.publish(myID)
             self.get_logger().info(f"Bot ID: {self.botID}")
+            client.loop_stop()
+            self.run()
 
         # Generate a Client ID with the subscribe prefix.
         client_id = f'subscribe-bot{self.botID}'
