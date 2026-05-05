@@ -12,6 +12,9 @@ COPY ros_code/ringWraithSub.py src/eyeComms_pkg/eyeComms_pkg/
 COPY ros_code/megaComms.py src/megaComms_pkg/megaComms_pkg/
 # COPY ros_code/launch.py src/
 
+COPY ros_entrypoint.sh /
+ENTRYPOINT ["/ros_entrypoint.sh"]
+
 # Open Necessary Ports
 #EXPOSE
 
@@ -30,4 +33,4 @@ USER ubuntu
 RUN colcon build && source install/setup.bash
 
 # Default command (what runs when container starts)
-CMD ["source","install/setup.bash", "&&", "source", "/opt/ros/jazzy/setup.bash"]
+CMD ["bash"]
