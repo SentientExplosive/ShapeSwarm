@@ -3,12 +3,16 @@ WORKDIR /home/ubuntu/EYE_ROS
 
 # RUN sudo apt update && sudo apt install --only-upgrade python3-paho-mqtt -y
 
-
 # Copy The Source Code
-COPY allSeeingEye.py src/vision/vision/
-COPY ringWraithPub.py src/comms/comms/
-COPY ringWraithSub.py src/comms/comms/
-# COPY ros_code/launch.py src/
+COPY allSeeingEye.py src/vision_pkg/vision_pkg/
+COPY ringWraithPub.py src/comms_pkg/comms_pkg/
+COPY ringWraithSub.py src/comms_pkg/comms_pkg/
+COPY launch.py launch/
+
+# Copy Entrypoint script
+COPY ros_entrypoint.sh /
+RUN chmod +x /ros_entrypoint.sh
+ENTRYPOINT ["/ros_entrypoint.sh"]
 
 # Open Necessary Ports
 #EXPOSE
@@ -19,13 +23,13 @@ COPY ringWraithSub.py src/comms/comms/
 
 # Fix permissions BEFORE switching user
 # RUN rm -rf /home/ubuntu/BOT_ROS/build /home/ubuntu/BOT_ROS/install /home/ubuntu/BOT_ROS/log
-RUN chown -R ubuntu:ubuntu /home/ubuntu/BOT_ROS
+RUN chown -R ubuntu:ubuntu /home/ubuntu/SAUROS
+RUN groupadd -g 996 input || true
 
 USER ubuntu
 
 # Build (must source ROS in same layer)
-# RUN source /opt/ros/jazzy/setup.bash && colcon build
-RUN colcon build && source install/setup.bash
+RUN source /opt/ros/jazzy/setup.bash && colcon build
 
 # Default command (what runs when container starts)
-#CMD ["ros2", "run", "eyeComms_pkg", "ringWraithPub"]
+CMD ["ros2", "launch", "/home/ubuntu/BOT_ROS/launch/launch.py"]
