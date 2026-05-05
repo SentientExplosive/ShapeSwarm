@@ -1,9 +1,7 @@
-version: "3.8"
-
 services:
-  ros_bot:
+  bot_ros:
     build: .
-    container_name: ros_bot
+    container_name: bot_ros
 
     # Keep container interactive-friendly
     stdin_open: true
