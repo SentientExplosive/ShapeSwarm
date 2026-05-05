@@ -12,8 +12,8 @@ COPY ros_code/megaComms.py src/megaComms_pkg/megaComms_pkg/
 #EXPOSE
 
 # Setup an app user so the container doesn't run as the root user
-USER root
-RUN userdel app || true && useradd -m app
+# USER root
+# RUN userdel app || true && useradd -m app
 
 # Fix permissions BEFORE switching user
 # RUN rm -rf /home/ubuntu/BOT_ROS/build /home/ubuntu/BOT_ROS/install /home/ubuntu/BOT_ROS/log
