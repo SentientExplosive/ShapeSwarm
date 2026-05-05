@@ -12,7 +12,8 @@ COPY ros_code/eyeComms_pkg/setup.py src/eyeComms_pkg/setup.py
 COPY ros_code/eyeComms_pkg/ringWraithPub.py src/eyeComms_pkg/eyeComms_pkg/
 COPY ros_code/eyeComms_pkg/ringWraithSub.py src/eyeComms_pkg/eyeComms_pkg/
 
-COPY ros_code/launch/launch.py src/launch/
+RUN mkdir launch
+COPY ros_code/launch/launch.py launch/
 
 COPY ros_code/megaComms_pkg/megaComms.py src/megaComms_pkg/megaComms_pkg/
 
