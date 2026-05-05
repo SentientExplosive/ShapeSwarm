@@ -37,7 +37,7 @@ class ringWraithPub(Node):
         self.BOT_TOPIC = "/bots"
         
         # Start MQTT service
-        self.run(("I SEE YOU",self.topicPrefix))
+        self.run(("I SEE YOU"))
 
         self.get_logger().info("Done initializing")
 
