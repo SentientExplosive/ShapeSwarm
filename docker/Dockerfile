@@ -41,4 +41,4 @@ USER ubuntu
 RUN source /opt/ros/jazzy/setup.bash && colcon build
 
 # Default command (what runs when container starts)
-CMD ["ros2", "launch", "launch/launch.py"]
+CMD ["ros2", "launch", "/home/ubuntu/BOT_ROS/launch/launch.py"]
