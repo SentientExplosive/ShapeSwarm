@@ -9,4 +9,5 @@ if [ -f "/home/ubuntu/BOT_ROS/install/setup.bash" ]; then
     source /home/ubuntu/BOT_ROS/install/setup.bash
 fi
 
+echo "Running command: $@"
 exec "$@"
