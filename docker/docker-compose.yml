@@ -29,4 +29,4 @@ services:
       # Optional: mount source for live dev
       # - ./ros_code:/home/ubuntu/BOT_ROS/src
 
-    command: bash
+    command: ros2 launch launch/launch.py
