@@ -24,7 +24,7 @@ class Brian(Node):
         self.witia_ = self.create_subscription(String, 'witia', self.check_pos_estimate,10)
 
         # Initialize my ID subscription
-        self.my_id_ = self.create_subscription(String, 'my_id', self.id_updater,10)
+        self.my_id_ = self.create_subscription(Int64, 'my_id', self.id_updater,10)
 
         # Initialize Error State subscription
         self.error_state_ = self.create_subscription(Int64, 'errorState', self.error_state_handler,10)

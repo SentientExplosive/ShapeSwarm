@@ -46,7 +46,7 @@ class ringWraithSub(Node):
                 self.get_logger().info(f"Failed to connect, return code {rc}\n")
 
         # Generate a Client ID with the subscribe prefix.
-        client_id = f'subscribe-bot{self.botID}'
+        client_id = f'subscribe-sauron'
 
         # Start client
         # client = mqtt_client.Client(mqtt_client.CallbackAPIVersion.VERSION2,client_id)

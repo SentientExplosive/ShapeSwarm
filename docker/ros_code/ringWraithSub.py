@@ -18,7 +18,7 @@ class ringWraithSub(Node):
         self.goal_pos = self.create_publisher(String, 'goal_pos', 10)
 
         # Initialize my ID publisher (not sure if this will be needed)
-        self.my_id = self.create_publisher(String, 'my_id', 10)
+        self.my_id = self.create_publisher(Int64, 'my_id', 10)
 
         # Initialize Error State publisher
         self.errorState = self.create_publisher(Int64, 'errorState', 10)
