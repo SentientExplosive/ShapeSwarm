@@ -26,6 +26,7 @@ ENTRYPOINT ["/ros_entrypoint.sh"]
 # Fix permissions BEFORE switching user
 # RUN rm -rf /home/ubuntu/BOT_ROS/build /home/ubuntu/BOT_ROS/install /home/ubuntu/BOT_ROS/log
 RUN chown -R ubuntu:ubuntu /home/ubuntu/BOT_ROS
+RUN usermod -aG input ubuntu
 
 USER ubuntu
 
