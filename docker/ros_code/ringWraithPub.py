@@ -55,7 +55,7 @@ class ringWraithPub(Node):
             if rc == 0:
                 self.get_logger().info("Connected to MQTT Broker!")
             else:
-                self.get_logger().info("Failed to connect, return code %d\n", rc)
+                self.get_logger().info(f"Failed to connect, return code {rc}\n")
         
         def on_disconnect(client, userdata, flags, rc):
             self.botID += 1
