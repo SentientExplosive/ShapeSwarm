@@ -10,7 +10,7 @@ import paho.mqtt.client as mqtt_client
 
 class ringWraithPub(Node):
     def __init__(self):
-        super().__init__('Bot Ring Wraith Pub')
+        super().__init__('Bot_Ring_Wraith_Pub')
         # Initialize Error State publisher
         self.errorState = self.create_publisher(Int64, 'errorState', 10)
 

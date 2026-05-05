@@ -7,7 +7,7 @@ from sense_hat import SenseHat
 
 class Brian(Node):
     def __init__(self):
-        super().__init__('Bot Ring Wraith Sub')
+        super().__init__('Brian')
         # Initialize state publisher
         self.state_pub = self.create_publisher(String, 'state', 10)
 

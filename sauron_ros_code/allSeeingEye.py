@@ -8,7 +8,7 @@ import cv2
 
 class allSeeingEye(Node):
     def __init__(self):
-        super().__init__('megaComms')
+        super().__init__('Sauron')
         # Initialize bot positions publisher
         self.bot_pos = self.create_publisher(String, 'bot_pos', 10)
 

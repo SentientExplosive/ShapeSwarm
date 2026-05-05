@@ -10,7 +10,7 @@ import paho.mqtt.client as mqtt_client
 
 class ringWraithPub(Node):
     def __init__(self):
-        super().__init__('Sauron Ring Wraith Pub')
+        super().__init__('Sauron_Ring_Wraith_Pub')
         # Initialize bot positions subscription
         self.bot_pos_ = self.create_subscription(String, 'bot_pos', self.send_bots, 10)
 

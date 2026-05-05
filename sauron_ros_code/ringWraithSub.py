@@ -10,7 +10,7 @@ import paho.mqtt.client as mqtt_client
 
 class ringWraithSub(Node):
     def __init__(self):
-        super().__init__('Sauron Ring Wraith Sub')
+        super().__init__('Sauron_Ring_Wraith_Sub')
         # Initialize run_state subscription (for updating the current state of the system)
         self.state_ = self.create_subscription(Int64, 'state', self.state_updater,10)
 
