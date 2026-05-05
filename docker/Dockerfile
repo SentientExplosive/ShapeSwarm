@@ -23,7 +23,7 @@ USER ubuntu
 
 # Build (must source ROS in same layer)
 # RUN source /opt/ros/jazzy/setup.bash && colcon build
-RUN colcon build
+RUN colcon build && source install/setup.bash
 
 # Default command (what runs when container starts)
 CMD ["ros2", "run", "eyeComms_pkg", "ringWraithPub"]
