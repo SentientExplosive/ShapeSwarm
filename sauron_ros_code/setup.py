@@ -24,8 +24,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'ringWraithSub = comms_pkg.ringWraithSub:main',
-            'ringWraithPub = comms_pkg.ringWraithPub:main'
+            'ringWraithPub = comms_pkg.ringWraithPub:main',
+            'ringWraithSub = comms_pkg.ringWraithSub:main'
         ],
     },
 )
