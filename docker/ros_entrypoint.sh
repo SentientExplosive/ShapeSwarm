@@ -2,7 +2,7 @@
 set -e
 
 # setup ros2 environment
-source "/opt/ros/$ROS_DISTRO/setup.bash" --
+source /opt/ros/jazzy/setup.bash
 
 # Source your workspace (if it exists)
 if [ -f "/home/ubuntu/BOT_ROS/install/setup.bash" ]; then
