@@ -34,8 +34,9 @@ class ringWraithSub(Node):
         self.port = 1883
         self.botID = 0 # This will update automatically as the bots fight over IDs
         self.subscriptionTopic = [('fromSauron/#',0)]
-        # self.username = 'Sauron'
-        # self.password = 'rOb0t1cs#'
+        self.username = 'Sauron'
+        self.password = 'rOb0t1cs#'
+        
 
         # Start MQTT service
         self.run()
@@ -56,7 +57,7 @@ class ringWraithSub(Node):
             else:
                 self.get_logger().info(f"Failed to connect, return code {rc}\n")
         
-        def on_disconnect(client, userdata, flags, rc):
+        def on_disconnect(client, userdata, rc):
             self.botID += 1
             myID = Int64()
             myID.data = self.botID
@@ -72,6 +73,7 @@ class ringWraithSub(Node):
         # client.username_pw_set(username, password)
         client.on_connect = on_connect
         client.on_disconnect = on_disconnect
+        client.username_pw_set(self.username, self.password)
         client.connect(self.broker, self.port, 60)
         return client
     
@@ -107,7 +109,7 @@ class ringWraithSub(Node):
     def run(self):
         client = self.connect_mqtt()
         self.subscribe(client)
-        client.loop_forever()
+        client.loop_start()
 
 
 def main(args=None):

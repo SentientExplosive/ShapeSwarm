@@ -57,7 +57,7 @@ class ringWraithPub(Node):
             else:
                 self.get_logger().info(f"Failed to connect, return code {rc}\n")
         
-        def on_disconnect(client, userdata, flags, rc):
+        def on_disconnect(client, userdata, rc):
             self.botID += 1
             self.get_logger().info(self.botID)
 

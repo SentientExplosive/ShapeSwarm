@@ -73,7 +73,7 @@ class ringWraithPub(Node):
         client = mqtt_client.Client(client_id)
         # client.username_pw_set(username, password)
         client.on_connect = on_connect
-        client.on_disconnect = on_disconnect
+        # client.on_disconnect = on_disconnect
         client.connect(self.broker, self.port, 60)
         return client
 

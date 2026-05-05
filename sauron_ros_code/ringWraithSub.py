@@ -66,7 +66,7 @@ class ringWraithSub(Node):
     def run(self):
         client = self.connect_mqtt()
         self.subscribe(client)
-        client.loop_forever()
+        client.loop_start()
 
 
 def main(args=None):
