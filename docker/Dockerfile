@@ -13,6 +13,7 @@ COPY ros_code/megaComms.py src/megaComms_pkg/megaComms_pkg/
 # COPY ros_code/launch.py src/
 
 COPY ros_entrypoint.sh /
+RUN chmod +x /ros_entrypoint.sh
 ENTRYPOINT ["/ros_entrypoint.sh"]
 
 # Open Necessary Ports
