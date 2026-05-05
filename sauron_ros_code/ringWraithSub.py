@@ -23,8 +23,8 @@ class ringWraithSub(Node):
         self.subscriptionTopic = [('toSauron/#',0)]
         # Generate a Client ID with the subscribe prefix.
         self.client_id = f'subscribe-sauron'
-        # self.username = 'Sauron'
-        # self.password = 'rOb0t1cs#'
+        self.username = 'Sauron'
+        self.password = 'rOb0t1cs#'
 
         # Start MQTT service
         self.run()
@@ -53,6 +53,7 @@ class ringWraithSub(Node):
         client = mqtt_client.Client(client_id)
         # client.username_pw_set(username, password)
         client.on_connect = on_connect
+        client.username_pw_set(self.username, self.password)
         client.connect(self.broker, self.port, 60)
         return client
 

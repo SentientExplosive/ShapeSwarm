@@ -28,8 +28,8 @@ class ringWraithPub(Node):
         self.port = 1883
         # Generate a Client ID with the publish prefix.
         self.client_id = f'publish-sauron'
-        # self.username = 'Sauron'
-        # self.password = 'rOb0t1cs#'
+        self.username = 'Sauron'
+        self.password = 'rOb0t1cs#'
 
         # Topics
         self.topicPrefix = "fromSauron"
@@ -74,6 +74,7 @@ class ringWraithPub(Node):
         # client.username_pw_set(username, password)
         client.on_connect = on_connect
         # client.on_disconnect = on_disconnect
+        client.username_pw_set(self.username, self.password)
         client.connect(self.broker, self.port, 60)
         return client
 

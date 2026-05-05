@@ -41,6 +41,7 @@ class Brian(Node):
 
         # Sense hat stuff
         self.sense = SenseHat()
+        self.sense.stick.direction_any = None  # or just don't use stick at all
 
         b = (0,0,0) # Black
         a = (0,0,255) # arrow color

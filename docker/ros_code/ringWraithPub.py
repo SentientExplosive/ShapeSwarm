@@ -29,8 +29,8 @@ class ringWraithPub(Node):
         self.botID = 0 # This will update automatically as the bots fight over IDs
         self.topicPrefix = 'toSauron'
         self.GOAL_TOPIC = '/goal_reached'
-        # self.username = 'Sauron'
-        # self.password = 'rOb0t1cs#'
+        self.username = 'Sauron'
+        self.password = 'rOb0t1cs#'
 
         # Start MQTT service
         self.run()
@@ -70,6 +70,7 @@ class ringWraithPub(Node):
         # client.username_pw_set(username, password)
         client.on_connect = on_connect
         client.on_disconnect = on_disconnect
+        client.username_pw_set(self.username, self.password)
         client.connect(self.broker, self.port, 60)
         return client
 
