@@ -58,11 +58,13 @@ class ringWraithSub(Node):
                 self.get_logger().info(f"Failed to connect, return code {rc}\n")
         
         def on_disconnect(client, userdata, rc):
-            self.botID += 1
-            myID = Int64()
-            myID.data = self.botID
-            self.my_id.publish(myID)
-            self.get_logger().info(f"Bot ID: {self.botID}")
+            self.get_logger().info(f"Return Code: {rc}")
+            if rc == 7:
+                self.botID += 1
+                myID = Int64()
+                myID.data = self.botID
+                self.my_id.publish(myID)
+                self.get_logger().info(f"Bot ID: {self.botID}")
             client.loop_stop()
             self.run()
 
@@ -73,7 +75,6 @@ class ringWraithSub(Node):
         # Start client
         # client = mqtt_client.Client(mqtt_client.CallbackAPIVersion.VERSION2,client_id)
         client = mqtt_client.Client(client_id)
-        # client.username_pw_set(username, password)
         client.on_connect = on_connect
         client.on_disconnect = on_disconnect
         client.username_pw_set(self.username, self.password)

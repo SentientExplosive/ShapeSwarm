@@ -17,6 +17,9 @@ class ringWraithPub(Node):
         # Initialize goal_reached subscription
         self.goal_reached_ = self.create_subscription(Int64, 'goal_reached', self.send_goal_reached, 10)
 
+        # Initialize my_ID subscription
+        self.my_id = self.create_subscription(Int64, 'my_id', self.id_updater,10)
+
         # Initialize run_state subscription (for updating the current state of the system)
         self.state_ = self.create_subscription(Int64, 'state', self.state_updater,10)
 
@@ -42,6 +45,9 @@ class ringWraithPub(Node):
         # Updates the state of the system
         newState = msg.data
         self.currState = newState
+    
+    def id_updater(self, msg):
+        self.botID = msg.data
 
     def send_goal_reached(self, msg):
         val = msg.data
@@ -57,9 +63,10 @@ class ringWraithPub(Node):
             else:
                 self.get_logger().info(f"Failed to connect, return code {rc}\n")
         
-        def on_disconnect(client, userdata, rc):
-            self.botID += 1
-            self.get_logger().info(f"Bot ID: {self.botID}")
+        # Removing disconnect method here to avoid conflicts with the subscriber setting a new bot ID on conflict
+        # def on_disconnect(client, userdata, rc):
+            # self.botID += 1
+            # self.get_logger().info(f"Bot ID: {self.botID}")
 
         # Generate a Client ID with the subscribe prefix.
         client_id = f'publish-bot{self.botID}'
@@ -67,9 +74,8 @@ class ringWraithPub(Node):
         # Start client
         # client = mqtt_client.Client(mqtt_client.CallbackAPIVersion.VERSION2,client_id)
         client = mqtt_client.Client(client_id)
-        # client.username_pw_set(username, password)
         client.on_connect = on_connect
-        client.on_disconnect = on_disconnect
+        # client.on_disconnect = on_disconnect
         client.username_pw_set(self.username, self.password)
         client.connect(self.broker, self.port, 60)
         return client

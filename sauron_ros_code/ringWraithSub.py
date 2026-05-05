@@ -49,7 +49,6 @@ class ringWraithSub(Node):
         # Start client
         # client = mqtt_client.Client(mqtt_client.CallbackAPIVersion.VERSION2,client_id)
         client = mqtt_client.Client(self.client_id)
-        # client.username_pw_set(username, password)
         client.on_connect = on_connect
         client.username_pw_set(self.username, self.password)
         client.connect(self.broker, self.port, 60)
