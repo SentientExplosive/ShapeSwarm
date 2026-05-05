@@ -1,4 +1,5 @@
 FROM ros:jazzy-perception-sauron-base
+SHELL ["/bin/bash", "-c"]
 WORKDIR /home/ubuntu/SAUROS
 
 # RUN sudo apt update && sudo apt install --only-upgrade python3-paho-mqtt -y
