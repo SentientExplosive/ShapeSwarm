@@ -17,7 +17,7 @@ COPY ros_code/megaComms.py src/megaComms_pkg/megaComms_pkg/
 
 # Fix permissions BEFORE switching user
 # RUN rm -rf /home/ubuntu/BOT_ROS/build /home/ubuntu/BOT_ROS/install /home/ubuntu/BOT_ROS/log
-# RUN chown -R app:app /home/ubuntu/BOT_ROS
+RUN chown -R ubuntu:ubuntu /home/ubuntu/BOT_ROS
 
 USER ubuntu
 
