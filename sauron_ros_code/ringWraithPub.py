@@ -59,15 +59,11 @@ class ringWraithPub(Node):
 
     # MQTT Functions
     def connect_mqtt(self) -> mqtt_client:
-        def on_connect(client, userdata, flags, rc, properties):
+        def on_connect(client, userdata, flags, rc):
             if rc == 0:
-                ringWraithPub.get_logger().info("Connected to MQTT Broker!")
+                self.get_logger().info("Connected to MQTT Broker!")
             else:
-                ringWraithPub.get_logger().info("Failed to connect, return code %d\n", rc)
-        
-        def on_disconnect(client, userdata, flags, rc, properties):
-            ringWraithPub.botID += 1
-            ringWraithPub.get_logger().info(ringWraithPub.botID)
+                self.get_logger().info("Failed to connect, return code %d\n", rc)
 
         # Generate a Client ID with the subscribe prefix.
         client_id = f'subscribe-bot{self.botID}'

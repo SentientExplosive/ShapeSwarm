@@ -52,16 +52,16 @@ class ringWraithSub(Node):
     def connect_mqtt(self) -> mqtt_client:
         def on_connect(client, userdata, flags, rc):
             if rc == 0:
-                ringWraithSub.get_logger().info("Connected to MQTT Broker!")
+                self.get_logger().info("Connected to MQTT Broker!")
             else:
-                ringWraithSub.get_logger().info("Failed to connect, return code %d\n", rc)
+                self.get_logger().info("Failed to connect, return code %d\n", rc)
         
         def on_disconnect(client, userdata, flags, rc):
-            ringWraithSub.botID += 1
+            self.botID += 1
             myID = Int64()
-            myID.data = ringWraithSub.botID
-            ringWraithSub.my_id.publish(myID)
-            ringWraithSub.get_logger().info(ringWraithSub.botID)
+            myID.data = self.botID
+            self.my_id.publish(myID)
+            self.get_logger().info(self.botID)
 
         # Generate a Client ID with the subscribe prefix.
         client_id = f'subscribe-bot{self.botID}'
@@ -92,13 +92,13 @@ class ringWraithSub(Node):
 
     def subscribe(self, client: mqtt_client):
         def on_message(client, userdata, msg):
-            ringWraithSub.get_logger().info(f"Received `{msg.payload.decode()}` from `{msg.topic}` topic")
+            self.get_logger().info(f"Received `{msg.payload.decode()}` from `{msg.topic}` topic")
             if msg.topic == "fromSauron/bot_pos":
-                ringWraithSub.send_bot_pos(msg.payload.decode())
+                self.send_bot_pos(msg.payload.decode())
             elif msg.topic == "fromSauron/goal_pos":
-                ringWraithSub.send_goal_pos(msg.payload.decode())
+                self.send_goal_pos(msg.payload.decode())
             elif msg.topic == "":
-                ringWraithSub.send_my_ID(msg.payload.decode())
+                self.send_my_ID(msg.payload.decode())
 
 
         client.subscribe(self.subscriptionTopic)

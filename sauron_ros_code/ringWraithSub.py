@@ -41,9 +41,9 @@ class ringWraithSub(Node):
     def connect_mqtt(self) -> mqtt_client:
         def on_connect(client, userdata, flags, rc):
             if rc == 0:
-                ringWraithSub.get_logger().info("Connected to MQTT Broker!")
+                self.get_logger().info("Connected to MQTT Broker!")
             else:
-                ringWraithSub.get_logger().info("Failed to connect, return code %d\n", rc)
+                self.get_logger().info("Failed to connect, return code %d\n", rc)
 
         # Generate a Client ID with the subscribe prefix.
         client_id = f'subscribe-bot{self.botID}'
@@ -58,7 +58,7 @@ class ringWraithSub(Node):
 
     def subscribe(self, client: mqtt_client):
         def on_message(client, userdata, msg):
-            ringWraithSub.get_logger().info(f"Received `{msg.payload.decode()}` from `{msg.topic}` topic")
+            self.get_logger().info(f"Received `{msg.payload.decode()}` from `{msg.topic}` topic")
 
         client.subscribe(self.subscriptionTopic)
         client.on_message = on_message
