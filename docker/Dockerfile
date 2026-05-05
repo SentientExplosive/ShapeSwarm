@@ -22,7 +22,8 @@ RUN userdel app || true && useradd -m app
 USER ubuntu
 
 # Build (must source ROS in same layer)
-RUN source /opt/ros/jazzy/setup.bash && colcon build
+# RUN source /opt/ros/jazzy/setup.bash && colcon build
+RUN colcon build
 
 # Default command (what runs when container starts)
 CMD ["ros2", "run", "eyeComms_pkg", "ringWraithPub"]
