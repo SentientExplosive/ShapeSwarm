@@ -66,6 +66,7 @@ class ringWraithSub(Node):
 
         # Generate a Client ID with the subscribe prefix.
         client_id = f'subscribe-bot{self.botID}'
+        self.get_logger().info(f"Signing in with ID {self.botID}")
 
         # Start client
         # client = mqtt_client.Client(mqtt_client.CallbackAPIVersion.VERSION2,client_id)
