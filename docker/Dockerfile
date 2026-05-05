@@ -17,9 +17,9 @@ RUN userdel app || true && useradd -m app
 
 # Fix permissions BEFORE switching user
 # RUN rm -rf /home/ubuntu/BOT_ROS/build /home/ubuntu/BOT_ROS/install /home/ubuntu/BOT_ROS/log
-RUN chown -R app:app /home/ubuntu/BOT_ROS
+# RUN chown -R app:app /home/ubuntu/BOT_ROS
 
-USER app
+USER ubuntu
 
 # Build (must source ROS in same layer)
 RUN source /opt/ros/jazzy/setup.bash && colcon build
