@@ -32,12 +32,12 @@ class ringWraithPub(Node):
         self.password = 'rOb0t1cs#'
 
         # Topics
-        self.topicPrefix = "fromSauron"
-        self.GOAL_TOPIC = "/goals"
-        self.BOT_TOPIC = "/bots"
+        self.topicPrefix = "fromSauron/"
+        self.GOAL_TOPIC = "goals"
+        self.BOT_TOPIC = "bots"
         
         # Start MQTT service
-        self.run(("I SEE YOU"))
+        self.run(("I SEE YOU",""))
 
         self.get_logger().info("Done initializing")
 
