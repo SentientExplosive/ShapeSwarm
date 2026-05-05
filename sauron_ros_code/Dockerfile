@@ -9,7 +9,7 @@ COPY allSeeingEye.py src/vision_pkg/vision_pkg/
 COPY ringWraithPub.py src/comms_pkg/comms_pkg/
 COPY ringWraithSub.py src/comms_pkg/comms_pkg/
 COPY setup.py src/comms_pkg/setup.py
-COPY package.xml src/comms_pkg/package.xml
+# COPY package.xml src/comms_pkg/package.xml
 COPY launch.py launch/
 
 # Copy Entrypoint script
