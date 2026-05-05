@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  ros_bot:
+    build: .
+    container_name: ros_bot
+
+    # Keep container interactive-friendly
+    stdin_open: true
+    tty: true
+
+    # ROS networking (important if using multiple nodes/containers)
+    network_mode: host
+
+    # Hardware access (Sense HAT)
+    privileged: true
+    devices:
+      - /dev/fb1
+      - /dev/i2c-1
+      - /dev/input
+
+    # Match host permissions for input devices
+    group_add:
+      - input
+
+    environment:
+      - ROS_DOMAIN_ID=0
+      - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+
+    volumes:
+      # Optional: mount source for live dev
+      - ./ros_code:/home/ubuntu/BOT_ROS/src
+
+    command: bash

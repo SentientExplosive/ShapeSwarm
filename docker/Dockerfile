@@ -26,13 +26,13 @@ ENTRYPOINT ["/ros_entrypoint.sh"]
 # Fix permissions BEFORE switching user
 # RUN rm -rf /home/ubuntu/BOT_ROS/build /home/ubuntu/BOT_ROS/install /home/ubuntu/BOT_ROS/log
 RUN chown -R ubuntu:ubuntu /home/ubuntu/BOT_ROS
-RUN usermod -aG input ubuntu
+# RUN groupadd -g 996 input || true
+# RUN usermod -aG input ubuntu
 
 USER ubuntu
 
 # Build (must source ROS in same layer)
-# RUN source /opt/ros/jazzy/setup.bash && colcon build
-RUN colcon build && source install/setup.bash
+RUN source /opt/ros/jazzy/setup.bash && colcon build
 
 # Default command (what runs when container starts)
 CMD ["bash"]
