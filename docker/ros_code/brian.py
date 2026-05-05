@@ -9,7 +9,7 @@ class Brian(Node):
     def __init__(self):
         super().__init__('Brian')
         # Initialize state publisher
-        self.state_pub = self.create_publisher(String, 'state', 10)
+        self.state_pub = self.create_publisher(Int64, 'state', 10)
 
         # Initialize megaMail publisher
         self.megaMail = self.create_publisher(String, 'megaMail', 10)
