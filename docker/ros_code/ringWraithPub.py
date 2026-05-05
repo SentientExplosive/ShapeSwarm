@@ -59,10 +59,10 @@ class ringWraithPub(Node):
         
         def on_disconnect(client, userdata, rc):
             self.botID += 1
-            self.get_logger().info(self.botID)
+            self.get_logger().info(f"Bot ID: {self.botID}")
 
         # Generate a Client ID with the subscribe prefix.
-        client_id = f'subscribe-bot{self.botID}'
+        client_id = f'publish-bot{self.botID}'
 
         # Start client
         # client = mqtt_client.Client(mqtt_client.CallbackAPIVersion.VERSION2,client_id)
