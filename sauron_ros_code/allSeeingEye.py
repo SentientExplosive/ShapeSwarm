@@ -22,7 +22,11 @@ class allSeeingEye(Node):
         self.running = False
 
         # Camera capture
-        self.cap = cv2.VideoCapture(0)
+        timer_period = 0.1
+        self.timer = self.create_timer(timer_period, self.sauron)
+        self.cap = cv2.VideoCapture(0, cv2.CAP_V4L2)
+        if not self.cap.isOpened():
+            print("Camera failed to open")
 
         self.get_logger().info("Done initializing")
 
@@ -43,25 +47,14 @@ class allSeeingEye(Node):
 
     def sauron(self):
         # THE ALL SEEING EYE SEES ALL (hopefully)
-
         self.get_logger().info("Opening Eye")
+        ret, frame = self.cap.read()
+        if not ret:
+            self.get_logger().info('Could not open eye')
+            return
+        self.get_logger().info('Publishing video frame')
 
-        self.running = True
-        count = 0
-        while self.running:
-            ref, frame = self.cap.read()
-            if not ref: # if no capture detected, close the program
-                count += 1
-                if count > 10:
-                    self.get_logger().info(f"Closing Eye")
-                    self.running = False
-                    break    
-                else:
-                    self.get_logger().info(f"Getting Tired: {count}")
-                    continue
-
-            cv2.imshow("LIVE", frame)
-
+        cv2.imshow("LIVE", frame)
 
 
 def main(args=None):
