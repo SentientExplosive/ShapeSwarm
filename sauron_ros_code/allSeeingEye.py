@@ -47,12 +47,18 @@ class allSeeingEye(Node):
         self.get_logger().info("Opening Eye")
 
         self.running = True
+        count = 0
         while self.running:
             ref, frame = self.cap.read()
             if not ref: # if no capture detected, close the program
-                self.get_logger().info("Closing Eye")
-                self.running = False
-                break
+                count += 1
+                if count > 10:
+                    self.get_logger().info(f"Closing Eye")
+                    self.running = False
+                    break    
+                else:
+                    self.get_logger().info(f"Getting Tired: {count}")
+                    continue
 
             cv2.imshow("LIVE", frame)
 
