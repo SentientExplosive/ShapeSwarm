@@ -37,6 +37,6 @@ services:
 
     volumes:
       - /usr/lib/aarch64-linux-gnu/libcamera:/usr/lib/aarch64-linux-gnu/libcamera
-      
+      - /tmp/.X11-unix:/tmp/.X11-unix
 
     command: ros2 launch launch/launch.py
