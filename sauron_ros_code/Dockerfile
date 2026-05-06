@@ -4,13 +4,10 @@ WORKDIR /home/ubuntu/SAUROS
 
 RUN sudo apt update && sudo apt install -y python3-paho-mqtt \
     # fswebcam \
-    libcamera-apps \
     gstreamer1.0-tools \
     gstreamer1.0-plugins-good \
     gstreamer1.0-plugins-base \
     gstreamer1.0-libcamera
-    # rpicam-apps
-    # libcamera-tools
 
 # Copy The Source Code
 COPY allSeeingEye.py src/vision_pkg/vision_pkg/
