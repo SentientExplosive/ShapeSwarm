@@ -7,7 +7,7 @@ RUN sudo apt update && sudo apt install -y python3-paho-mqtt \
     gstreamer1.0-tools \
     gstreamer1.0-libcamera \
     gstreamer1.0-plugins-base \
-    gstreamer1.0-plugins-good \
+    gstreamer1.0-plugins-good
     # libcamera-ipa \
     # libcamera-tools
 
