@@ -2,7 +2,11 @@ FROM ros:jazzy-perception-sauron-base
 SHELL ["/bin/bash", "-c"]
 WORKDIR /home/ubuntu/SAUROS
 
-RUN sudo apt update && sudo apt install python3-paho-mqtt -y && sudo apt install v4l-utils -y
+RUN sudo apt update && sudo apt install python3-paho-mqtt -y && sudo apt install -y v4l-utils \
+    gstreamer1.0-tools \
+    gstreamer1.0-libcamera \
+    gstreamer1.0-plugins-base \
+    gstreamer1.0-plugins-good
 
 # Copy The Source Code
 COPY allSeeingEye.py src/vision_pkg/vision_pkg/
