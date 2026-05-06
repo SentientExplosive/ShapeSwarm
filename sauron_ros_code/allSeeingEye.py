@@ -19,7 +19,8 @@ class allSeeingEye(Node):
         self.goal_reached_ = self.create_subscription(Int64, 'goal_reached', self.receive_goal_reached, 10)
 
         # Whether or not the vision is running (may or may not need this)
-        self.running = False
+        self.running = True
+        self.count = 0
 
         # Camera capture
         timer_period = 0.1
@@ -47,10 +48,16 @@ class allSeeingEye(Node):
 
     def sauron(self):
         # THE ALL SEEING EYE SEES ALL (hopefully)
+        if not self.running:
+            return
+        
         self.get_logger().info("Opening Eye")
         ret, frame = self.cap.read()
         if not ret:
-            self.get_logger().info('Could not open eye')
+            self.count += 1
+            self.get_logger().info(f'Could not open eye: {self.count}')
+            if self.count > 100:
+                self.running = False
             return
         self.get_logger().info('Publishing video frame')
 
