@@ -44,12 +44,13 @@ class allSeeingEye(Node):
     def sauron(self):
         # THE ALL SEEING EYE SEES ALL (hopefully)
 
-        self.get_logger().info("Starting Vision")
+        self.get_logger().info("Opening Eye")
 
         self.running = True
         while self.running:
             ref, frame = self.cap.read()
             if not ref: # if no capture detected, close the program
+                self.get_logger().info("Closing Eye")
                 self.running = False
                 break
 
