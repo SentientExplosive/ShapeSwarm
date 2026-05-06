@@ -22,8 +22,8 @@ services:
       # - /dev/video0
       # - /dev/media0
       # - /dev/media1
-      - /dev/v4l-subdev0
-      - /dev/v4l-subdev1
+      # - /dev/v4l-subdev0
+      # - /dev/v4l-subdev1
       # - /dev/dri
 
     # Match host permissions for input devices
