@@ -18,6 +18,11 @@ services:
       - /dev/i2c-1
       - /dev/input
       - /dev/video0
+      - /dev/media0
+      - /dev/media1
+      - /dev/v4l-subdev0
+      - /dev/v4l-subdev1
+      - /dev/dri
 
     # Match host permissions for input devices
     group_add:
@@ -26,10 +31,11 @@ services:
 
     environment:
       - ROS_DOMAIN_ID=0
+      - DISPLAY=$DISPLAY
       - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
 
-    # volumes:
-      # Optional: mount source for live dev
-      # - ./ros_code:/home/ubuntu/BOT_ROS/src
+    volumes:
+      - /usr/lib/aarch64-linux-gnu/libcamera:/usr/lib/aarch64-linux-gnu/libcamera
+      
 
     command: ros2 launch launch/launch.py
