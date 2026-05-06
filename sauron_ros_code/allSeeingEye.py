@@ -51,6 +51,7 @@ class allSeeingEye(Node):
             ref, frame = self.cap.read()
             if not ref: # if no capture detected, close the program
                 self.running = False
+                break
 
             cv2.imshow("LIVE", frame)
 
