@@ -2,6 +2,7 @@ services:
   sauron:
     build: .
     container_name: sauron
+    restart: unless-stopped
 
     # Keep container interactive-friendly
     stdin_open: true

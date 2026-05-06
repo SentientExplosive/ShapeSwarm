@@ -2,6 +2,7 @@ services:
   bot:
     build: .
     container_name: bot_ros
+    restart: unless-stopped
 
     # Keep container interactive-friendly
     stdin_open: true
