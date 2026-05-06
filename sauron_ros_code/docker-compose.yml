@@ -22,6 +22,7 @@ services:
     # Match host permissions for input devices
     group_add:
       - input
+      - video
 
     environment:
       - ROS_DOMAIN_ID=0
