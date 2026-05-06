@@ -33,7 +33,7 @@ services:
       - ROS_DOMAIN_ID=0
       - DISPLAY=$DISPLAY
       - XDG_RUNTIME_DIR=/tmp/runtime-ubuntu
-      - QT_QPA_PLATFORM=offscreen
+      - QT_QPA_PLATFORM=xcb
       - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
 
     volumes:
