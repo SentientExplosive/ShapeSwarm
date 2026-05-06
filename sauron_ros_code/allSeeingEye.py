@@ -24,7 +24,7 @@ class allSeeingEye(Node):
 
         # Camera capture
         self.cap = cv2.VideoCapture(
-            "libcamerasrc ! video/x-raw,width=640,height=480,framerate=30/1 ! videoconvert ! appsink",
+            "libcamerasrc ! videoconvert ! appsink",
             cv2.CAP_GSTREAMER
         )
         if not self.cap.isOpened():
