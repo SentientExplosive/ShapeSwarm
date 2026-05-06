@@ -23,13 +23,14 @@ class allSeeingEye(Node):
         self.count = 0
 
         # Camera capture
-        timer_period = 0.1
-        self.timer = self.create_timer(timer_period, self.sauron)
         self.cap = cv2.VideoCapture(0, cv2.CAP_V4L2)
         if not self.cap.isOpened():
             print("Camera failed to open")
 
         self.get_logger().info("Done initializing")
+
+        timer_period = 0.1
+        self.timer = self.create_timer(timer_period, self.sauron)
     
     def send_bot_pos(self, msg):
         pos = String()
