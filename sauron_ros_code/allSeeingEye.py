@@ -30,8 +30,6 @@ class allSeeingEye(Node):
             print("Camera failed to open")
 
         self.get_logger().info("Done initializing")
-
-        self.sauron()
     
     def send_bot_pos(self, msg):
         pos = String()
@@ -62,6 +60,7 @@ class allSeeingEye(Node):
         self.get_logger().info('Publishing video frame')
 
         cv2.imshow("LIVE", frame)
+        cv2.waitKey(1)
 
 
 def main(args=None):
