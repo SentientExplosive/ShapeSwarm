@@ -23,7 +23,7 @@ class allSeeingEye(Node):
         self.count = 0
 
         # Camera capture
-        self.cap = cv2.VideoCapture("/dev/video0")
+        self.cap = cv2.VideoCapture("/dev/video0", cv2.CAP_V4L2)
         if not self.cap.isOpened():
             print("Camera failed to open")
         # Set resolution (optional, like -r 1280x720)
