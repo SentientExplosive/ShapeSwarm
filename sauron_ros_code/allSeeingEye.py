@@ -18,9 +18,15 @@ class allSeeingEye(Node):
         # Initialize goal_reached subscription
         self.goal_reached_ = self.create_subscription(Int64, 'goal_reached', self.receive_goal_reached, 10)
 
+        # Whether or not the vision is running (may or may not need this)
         self.running = False
 
+        # Camera capture
+        self.cap = cv2.VideoCapture(0)
+
         self.get_logger().info("Done initializing")
+
+        self.sauron()
     
     def send_bot_pos(self, msg):
         pos = String()
@@ -37,7 +43,17 @@ class allSeeingEye(Node):
 
     def sauron(self):
         # THE ALL SEEING EYE SEES ALL (hopefully)
-        pass
+
+        self.get_logger().info("Starting Vision")
+
+        self.running = True
+        while self.running:
+            ref, frame = self.cap.read()
+            if not ref: # if no capture detected, close the program
+                self.running = False
+
+            cv2.imshow("LIVE", frame)
+
 
 
 def main(args=None):
