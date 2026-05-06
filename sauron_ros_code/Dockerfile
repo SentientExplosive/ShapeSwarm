@@ -3,7 +3,7 @@ SHELL ["/bin/bash", "-c"]
 WORKDIR /home/ubuntu/SAUROS
 
 RUN sudo apt update && sudo apt install -y python3-paho-mqtt \
-    python3-picamera2
+    fswebcam
     # gstreamer1.0-tools \
     # gstreamer1.0-libcamera \
     # gstreamer1.0-plugins-base \
