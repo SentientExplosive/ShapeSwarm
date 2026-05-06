@@ -23,12 +23,12 @@ class allSeeingEye(Node):
         self.count = 0
 
         # Camera capture
-        self.cap = cv2.VideoCapture(
-            "libcamerasrc ! videoconvert ! appsink",
-            cv2.CAP_GSTREAMER
-        )
+        self.cap = cv2.VideoCapture(0)
         if not self.cap.isOpened():
             print("Camera failed to open")
+        # Set resolution (optional, like -r 1280x720)
+        # self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
+        # self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
 
         self.get_logger().info("Done initializing")
 
@@ -77,6 +77,7 @@ def main(args=None):
     except KeyboardInterrupt:
         node.get_logger().info("Shutting down Sauron's vision.")
     finally:
+        node.cap.release()
         node.destroy_node()
         rclpy.shutdown()
 
