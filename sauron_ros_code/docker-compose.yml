@@ -31,7 +31,7 @@ services:
 
     environment:
       - ROS_DOMAIN_ID=0
-      - DISPLAY=$DISPLAY
+      - DISPLAY=:0
       - XDG_RUNTIME_DIR=/tmp/runtime-ubuntu
       - QT_QPA_PLATFORM=xcb
       - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
