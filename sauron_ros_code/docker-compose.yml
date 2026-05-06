@@ -17,9 +17,11 @@ services:
       - /dev/fb1
       - /dev/i2c-1
       - /dev/input
-      - /dev/video0
-      - /dev/media0
-      - /dev/media1
+      - /dev/vchiq
+      - /dev/dri
+      # - /dev/video0
+      # - /dev/media0
+      # - /dev/media1
       - /dev/v4l-subdev0
       - /dev/v4l-subdev1
       # - /dev/dri
