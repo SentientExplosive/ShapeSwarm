@@ -2,7 +2,7 @@ FROM ros:jazzy-perception-sauron-base
 SHELL ["/bin/bash", "-c"]
 WORKDIR /home/ubuntu/SAUROS
 
-RUN sudo apt update && sudo apt install -y python3-paho-mqtt \
+RUN apt update && apt install -y python3-paho-mqtt \
     # fswebcam \
     gstreamer1.0-tools \
     gstreamer1.0-plugins-good \
