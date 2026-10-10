@@ -33,7 +33,9 @@ services:
 
     environment:
       - ROS_DOMAIN_ID=0
+      - ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
       - DISPLAY=:0
+      - XAUTHORITY=/tmp/.docker.xauth
       - XDG_RUNTIME_DIR=/tmp/runtime-ubuntu
       - QT_QPA_PLATFORM=xcb
       - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
@@ -42,8 +44,11 @@ services:
       - QT_OPENGL=software
 
     volumes:
-      - /usr/lib/aarch64-linux-gnu/libcamera:/usr/lib/aarch64-linux-gnu/libcamera
+      - /dev:/dev
+      - /run/udev:/run/udev:ro
+      - /usr/lib/aarch64-linux-gnu/libcamera:/usr/lib/aarch64-linux-gnu/libcamera:ro
       - /tmp/.X11-unix:/tmp/.X11-unix
       - /tmp/runtime-ubuntu:/tmp/runtime-ubuntu
+      - ~/.Xauthority:/tmp/.docker.xauth:ro
 
     command: ros2 launch launch/launch.py

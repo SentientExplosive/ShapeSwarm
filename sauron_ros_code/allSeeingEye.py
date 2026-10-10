@@ -23,11 +23,15 @@ class allSeeingEye(Node):
         self.count = 0
 
         # Camera capture
-        self.cap = cv2.VideoCapture("/dev/video0", cv2.CAP_V4L2)
-        cv2.VideoCapture(
-            "libcamerasrc ! videoconvert ! appsink",
-            cv2.CAP_GSTREAMER
+        pipeline = (
+            "libcamerasrc ! "
+            "video/x-raw,width=1280,height=720 ! "
+            "videoconvert ! "
+            "appsink caps=video/x-raw,format=BGR"
         )
+        
+        self.cap = cv2.VideoCapture(pipeline, cv2.CAP_GSTREAMER)
+
         if not self.cap.isOpened():
             print("Camera failed to open")
         # Set resolution (optional, like -r 1280x720)
