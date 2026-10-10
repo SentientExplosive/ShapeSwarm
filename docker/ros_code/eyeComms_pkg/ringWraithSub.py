@@ -26,6 +26,13 @@ class ringWraithSub(Node):
         # Initialize run_state subscription (for updating the current state of the system)
         self.state_ = self.create_subscription(Int64, 'state', self.state_updater,10)
 
+        # Delayed message publisher
+        timer_period = 5.0
+        self.topic = self.my_id
+        self.msg = Int64()
+        self.timer = self.create_timer(timer_period, self.post_delayed_msg(self.topic, self.msg))
+        self.timer.cancel()
+
         # State variable
         self.currState = 0
 
@@ -53,6 +60,7 @@ class ringWraithSub(Node):
     def post_delayed_msg(self, topic, msg):
         topic.publish(msg)
         self.get_logger().info(f"Message data posted: {msg.data}")
+        self.timer.cancel()
 
     # MQTT Functions
     def connect_mqtt(self) -> mqtt_client:
@@ -68,8 +76,11 @@ class ringWraithSub(Node):
                 self.botID += 1
                 myID = Int64()
                 myID.data = self.botID
-                topic = self.my_id
-                self.timer = self.create_timer(5, self.post_delayed_msg(topic, myID))
+
+                self.topic = self.my_id
+                self.msg = myID
+                self.timer.reset()
+
                 self.get_logger().info(f"Bot ID: {self.botID}")
             client.loop_stop()
             self.run()
