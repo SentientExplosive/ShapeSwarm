@@ -59,6 +59,7 @@ class Brian(Node):
             b, b, b, b, b, b, a, a
         ]
         self.my_arrow = self.arrow_pixels.copy()
+        self.sense.set_pixels(self.my_arrow)
 
         self.get_logger().info("Done initializing")
 
@@ -70,11 +71,13 @@ class Brian(Node):
         # Updates the state of the system
         newState = msg.data
         self.currState = newState
+        self.get_logger().info("New State: ")
 
     def id_updater(self, msg):
         self.ID = msg.data
         self.my_arrow = self.idGen(self.ID)
         self.sense.set_pixels(self.my_arrow)
+        self.get_logger().info("ID Updated")
     
     def updated_bot_pos(self, msg):
         pos = eval(msg.data)
@@ -124,6 +127,7 @@ class Brian(Node):
             my_id[3] = self.n
             my_id[4] = self.n
 
+        self.get_logger().info("ID Generated")
         return my_id
 
     # Potential field calculations
