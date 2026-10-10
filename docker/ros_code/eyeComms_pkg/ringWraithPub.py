@@ -27,7 +27,7 @@ class ringWraithPub(Node):
         self.currState = 0
 
         # MQTT Variables
-        self.broker = "137.142.164.255"
+        self.broker = "192.168.1.109"
         self.port = 1883
         self.botID = 0 # This will update automatically as the bots fight over IDs
         self.topicPrefix = 'toSauron'
