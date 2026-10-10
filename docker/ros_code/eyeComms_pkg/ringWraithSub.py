@@ -52,6 +52,7 @@ class ringWraithSub(Node):
     # Function for posting delayed messages
     def post_delayed_msg(self, topic, msg):
         topic.publish(msg)
+        self.get_logger().info(f"Message data posted: {msg.data}")
 
     # MQTT Functions
     def connect_mqtt(self) -> mqtt_client:
