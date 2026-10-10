@@ -49,6 +49,10 @@ class ringWraithSub(Node):
         newState = msg.data
         self.currState = newState
 
+    # Function for posting delayed messages
+    def post_delayed_msg(self, topic, msg):
+        topic.publish(msg)
+
     # MQTT Functions
     def connect_mqtt(self) -> mqtt_client:
         def on_connect(client, userdata, flags, rc):
@@ -63,7 +67,8 @@ class ringWraithSub(Node):
                 self.botID += 1
                 myID = Int64()
                 myID.data = self.botID
-                self.my_id.publish(myID)
+                topic = self.my_id
+                self.timer = self.create_timer(5, self.post_delayed_msg(topic, myID))
                 self.get_logger().info(f"Bot ID: {self.botID}")
             client.loop_stop()
             self.run()
