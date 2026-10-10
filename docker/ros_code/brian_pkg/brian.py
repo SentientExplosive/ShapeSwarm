@@ -9,28 +9,28 @@ class Brian(Node):
     def __init__(self):
         super().__init__('Brian')
         # Initialize state publisher
-        self.state_pub = self.create_publisher(Int64, 'state', 10)
+        self.state_pub = self.create_publisher(Int64, '/state', 10)
 
         # Initialize megaMail publisher
-        self.megaMail = self.create_publisher(String, 'megaMail', 10)
+        self.megaMail = self.create_publisher(String, '/megaMail', 10)
 
         # Initialize bot positions subscription
-        self.bot_pos_ = self.create_subscription(String, 'bot_pos', self.updated_bot_pos,10)
+        self.bot_pos_ = self.create_subscription(String, '/bot_pos', self.updated_bot_pos,10)
 
         # Initialize goal positions subscription
-        self.goal_pos_ = self.create_subscription(String, 'goal_pos', self.updated_goal_pos,10)
+        self.goal_pos_ = self.create_subscription(String, '/goal_pos', self.updated_goal_pos,10)
 
         # Initialize WITIA (Where I Think I Am) subscription
-        self.witia_ = self.create_subscription(String, 'witia', self.check_pos_estimate,10)
+        self.witia_ = self.create_subscription(String, '/witia', self.check_pos_estimate,10)
 
         # Initialize my ID subscription
-        self.my_id_ = self.create_subscription(Int64, 'my_id', self.id_updater,10)
+        self.my_id_ = self.create_subscription(Int64, '/my_id', self.id_updater,10)
 
         # Initialize Error State subscription
-        self.error_state_ = self.create_subscription(Int64, 'errorState', self.error_state_handler,10)
+        self.error_state_ = self.create_subscription(Int64, '/errorState', self.error_state_handler,10)
 
         # Initialize run_state subscription (for updating the current state of the system)
-        self.state_ = self.create_subscription(Int64, 'state', self.state_updater,10)
+        self.state_ = self.create_subscription(Int64, '/state', self.state_updater,10)
 
         # State variable
         self.currState = 0
@@ -71,13 +71,13 @@ class Brian(Node):
         # Updates the state of the system
         newState = msg.data
         self.currState = newState
-        self.get_logger().info("New State: ")
+        self.get_logger().info(f"New State: {self.currState}")
 
     def id_updater(self, msg):
         self.ID = msg.data
         self.my_arrow = self.idGen(self.ID)
         self.sense.set_pixels(self.my_arrow)
-        self.get_logger().info("ID Updated")
+        self.get_logger().info(f"ID Updated: {self.ID}")
     
     def updated_bot_pos(self, msg):
         pos = eval(msg.data)

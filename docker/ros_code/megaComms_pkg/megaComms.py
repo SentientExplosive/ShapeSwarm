@@ -10,16 +10,16 @@ class SerialCommunicator(Node):
     def __init__(self):
         super().__init__('megaComms')
         # Initialize WITIA publisher
-        self.witia = self.create_publisher(String, 'WITIA', 10)
+        self.witia = self.create_publisher(String, '/WITIA', 10)
 
         # Initialize Error State publisher
-        self.errorState = self.create_publisher(Int64, 'errorState', 10)
+        self.errorState = self.create_publisher(Int64, '/errorState', 10)
 
         # Initialize run_state subscription (for updating the current state of the system)
-        self.state_ = self.create_subscription(Int64, 'state', self.state_updater,10)
+        self.state_ = self.create_subscription(Int64, '/state', self.state_updater,10)
         
         # Initialize MegaMail subscription (messages being sent to the mega)
-        self.megaMail_ = self.create_subscription(String, 'megaMail', self.send_serial_data, 10)
+        self.megaMail_ = self.create_subscription(String, '/megaMail', self.send_serial_data, 10)
 
         # Initialize the serial port
         # Update the serial port name and baud rate as needed (should add code to search for open ports and trying to connect to them, or dedicate a specific port to the PI)

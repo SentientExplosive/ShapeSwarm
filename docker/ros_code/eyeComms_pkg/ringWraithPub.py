@@ -12,16 +12,16 @@ class ringWraithPub(Node):
     def __init__(self):
         super().__init__('Bot_Ring_Wraith_Pub')
         # Initialize Error State publisher
-        self.errorState = self.create_publisher(Int64, 'errorState', 10)
+        self.errorState = self.create_publisher(Int64, '/errorState', 10)
 
         # Initialize goal_reached subscription
-        self.goal_reached_ = self.create_subscription(Int64, 'goal_reached', self.send_goal_reached, 10)
+        self.goal_reached_ = self.create_subscription(Int64, '/goal_reached', self.send_goal_reached, 10)
 
         # Initialize my_ID subscription
-        self.my_id = self.create_subscription(Int64, 'my_id', self.id_updater,10)
+        self.my_id = self.create_subscription(Int64, '/my_id', self.id_updater,10)
 
         # Initialize run_state subscription (for updating the current state of the system)
-        self.state_ = self.create_subscription(Int64, 'state', self.state_updater,10)
+        self.state_ = self.create_subscription(Int64, '/state', self.state_updater,10)
 
         # State variable
         self.currState = 0
