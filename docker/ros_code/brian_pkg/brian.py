@@ -21,7 +21,7 @@ class Brian(Node):
         self.goal_pos_ = self.create_subscription(String, '/goal_pos', self.updated_goal_pos,10)
 
         # Initialize WITIA (Where I Think I Am) subscription
-        self.witia_ = self.create_subscription(String, '/witia', self.check_pos_estimate,10)
+        self.witia_ = self.create_subscription(String, '/WITIA', self.check_pos_estimate,10)
 
         # Initialize my ID subscription
         self.my_id_ = self.create_subscription(Int64, '/my_id', self.id_updater,10)

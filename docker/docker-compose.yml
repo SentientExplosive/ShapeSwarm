@@ -25,6 +25,7 @@ services:
 
     environment:
       - ROS_DOMAIN_ID=0
+      - ROS_LOCALHOST_ONLY=1
       - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
 
     # volumes:
