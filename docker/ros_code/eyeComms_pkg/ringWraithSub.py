@@ -30,7 +30,7 @@ class ringWraithSub(Node):
         timer_period = 5.0
         self.topic = self.my_id
         self.msg = Int64()
-        self.timer = self.create_timer(timer_period, self.post_delayed_msg(), autostart=False)
+        self.timer = self.create_timer(timer_period, self.post_delayed_msg, autostart=False)
 
         # State variable
         self.currState = 0
