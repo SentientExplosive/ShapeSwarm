@@ -10,20 +10,20 @@ class allSeeingEye(Node):
     def __init__(self):
         super().__init__('Sauron')
         # Initialize bot positions publisher
-        self.bot_pos = self.create_publisher(String, 'bot_pos', 10)
+        self.bot_pos = self.create_publisher(String, '/bot_pos', 10)
 
         # Initialize goal positions publisher
-        self.goal_pos = self.create_publisher(String, 'goal_pos', 10)
+        self.goal_pos = self.create_publisher(String, '/goal_pos', 10)
 
         # Initialize goal_reached subscription
-        self.goal_reached_ = self.create_subscription(Int64, 'goal_reached', self.receive_goal_reached, 10)
+        self.goal_reached_ = self.create_subscription(Int64, '/goal_reached', self.receive_goal_reached, 10)
 
         # Whether or not the vision is running (may or may not need this)
         self.running = True
         self.count = 0
 
         # Camera capture
-        # self.cap = cv2.VideoCapture("/dev/video0", cv2.CAP_V4L2)
+        self.cap = cv2.VideoCapture("/dev/video0", cv2.CAP_V4L2)
         cv2.VideoCapture(
             "libcamerasrc ! videoconvert ! appsink",
             cv2.CAP_GSTREAMER

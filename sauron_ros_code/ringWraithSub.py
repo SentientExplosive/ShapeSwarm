@@ -12,7 +12,7 @@ class ringWraithSub(Node):
     def __init__(self):
         super().__init__('Sauron_Ring_Wraith_Sub')
         # Initialize run_state subscription (for updating the current state of the system)
-        self.state_ = self.create_subscription(Int64, 'state', self.state_updater,10)
+        self.state_ = self.create_subscription(Int64, '/state', self.state_updater,10)
 
         # State variable
         self.currState = 0

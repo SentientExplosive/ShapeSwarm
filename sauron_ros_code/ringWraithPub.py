@@ -12,13 +12,13 @@ class ringWraithPub(Node):
     def __init__(self):
         super().__init__('Sauron_Ring_Wraith_Pub')
         # Initialize bot positions subscription
-        self.bot_pos_ = self.create_subscription(String, 'bot_pos', self.send_bots, 10)
+        self.bot_pos_ = self.create_subscription(String, '/bot_pos', self.send_bots, 10)
 
         # Initialize goal positions subscription
-        self.goal_pos_ = self.create_subscription(String, 'goal_pos', self.send_goals, 10)
+        self.goal_pos_ = self.create_subscription(String, '/goal_pos', self.send_goals, 10)
 
         # Initialize run_state subscription (for updating the current state of the system)
-        self.state_ = self.create_subscription(Int64, 'state', self.state_updater,10)
+        self.state_ = self.create_subscription(Int64, '/state', self.state_updater,10)
 
         # State variable
         self.currState = 0
