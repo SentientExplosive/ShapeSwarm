@@ -30,8 +30,7 @@ class ringWraithSub(Node):
         timer_period = 5.0
         self.topic = self.my_id
         self.msg = Int64()
-        self.timer = self.create_timer(timer_period, self.post_delayed_msg(self.topic, self.msg))
-        self.timer.cancel()
+        self.timer = self.create_timer(timer_period, self.post_delayed_msg(), autostart=False)
 
         # State variable
         self.currState = 0
@@ -57,9 +56,9 @@ class ringWraithSub(Node):
         self.currState = newState
 
     # Function for posting delayed messages
-    def post_delayed_msg(self, topic, msg):
-        topic.publish(msg)
-        self.get_logger().info(f"Message data posted: {msg.data}")
+    def post_delayed_msg(self):
+        self.topic.publish(self.msg)
+        self.get_logger().info(f"Message data posted: {self.msg.data}")
         self.timer.cancel()
 
     # MQTT Functions
