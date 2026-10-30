@@ -58,7 +58,7 @@ class allSeeingEye(Node):
         if not self.running:
             return
         
-        self.get_logger().info("Opening Eye")
+        # self.get_logger().info("Opening Eye")
         ret, frame = self.cap.read()
         if not ret:
             self.count += 1
@@ -66,7 +66,7 @@ class allSeeingEye(Node):
             if self.count > 100:
                 self.running = False
             return
-        self.get_logger().info('Publishing video frame')
+        # self.get_logger().info('Publishing video frame')
 
         cv2.imshow("LIVE", frame)
         cv2.waitKey(1)
