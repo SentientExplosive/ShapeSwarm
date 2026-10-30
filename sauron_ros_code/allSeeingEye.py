@@ -68,7 +68,10 @@ class allSeeingEye(Node):
             return
         # self.get_logger().info('Publishing video frame')
 
-        cv2.imshow("LIVE", frame)
+        blurred = cv2.GaussianBlur(frame, (11,11), 0)
+        hsv = cv2.cvtColor(blurred, cv2.COLOR_BGR2HLS)
+
+        cv2.imshow("LIVE", hsv)
         cv2.waitKey(1)
 
 
