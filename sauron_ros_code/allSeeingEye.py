@@ -34,9 +34,6 @@ class allSeeingEye(Node):
 
         if not self.cap.isOpened():
             print("Camera failed to open")
-        # Set resolution (optional, like -r 1280x720)
-        # self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
-        # self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
 
         self.get_logger().info("Done initializing")
 

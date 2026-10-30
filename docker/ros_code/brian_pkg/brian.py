@@ -44,8 +44,8 @@ class Brian(Node):
         self.sense.stick.direction_any = None  # or just don't use stick at all
 
         b = (0,0,0) # Black
-        a = (0,0,255) # arrow color
-        self.n = (255,0,0) # Number / dot color
+        a = (0,0,150) # arrow color
+        self.n = (150,0,0) # Number / dot color
 
         # Array for just the arrow
         self.arrow_pixels = [

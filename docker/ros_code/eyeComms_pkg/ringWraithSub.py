@@ -27,7 +27,7 @@ class ringWraithSub(Node):
         self.state_ = self.create_subscription(Int64, '/state', self.state_updater,10)
 
         # Delayed message publisher
-        timer_period = 5.0
+        timer_period = 2.0
         self.topic = self.my_id
         self.msg = Int64()
         self.timer = self.create_timer(timer_period, self.post_delayed_msg, autostart=False)
